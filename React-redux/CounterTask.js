@@ -29,3 +29,31 @@ const mapDispatchToProps=(dispath)=>{
 
 export default connect(mapStateToProps,mapDispatchToProps)(CounterTask);
 
+//----------------  this onother way of accessing props and dispach , this is another file --------------------
+
+import React from 'react';
+import {  useDispatch, useSelector } from 'react-redux';
+import buyLaptop from './Action/Action';
+
+function IncrementTask() {
+
+    const data1=useSelector(stat => stat.numOfLaptops )
+    const data2=useDispatch()
+    
+    
+    return <div>
+      <h1>{data1}</h1>
+      <button onClick={()=>data2(buyLaptop())} >onclick</button>
+    </div>;
+}
+// const mapStatetoProps=(state)=>{
+//     return {data:state.numOfLaptops}
+
+// }
+// const mapDispatchToProps=(dispath)=>{
+//     return {
+//         data2:()=>dispath(buyLaptop())
+//     }
+// }
+export default IncrementTask;
+
